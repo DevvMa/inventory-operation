@@ -64,3 +64,46 @@ test('distinguishes an empty API result from loading or failure', async () => {
   expect(screen.queryByRole('table')).not.toBeInTheDocument();
   expect(screen.queryByRole('alert')).not.toBeInTheDocument();
 });
+
+test('combines trimmed case-insensitive search with low-stock filtering and reset', async () => {
+  getProducts.mockResolvedValue(products);
+  render(<InventoryPage />);
+  await screen.findByRole('table');
+  const search = screen.getByRole('searchbox', { name: 'Cari produk' });
+  await userEvent.type(search, ' KOPI ');
+  await userEvent.click(screen.getByRole('checkbox', { name: /Stok rendah/ }));
+  expect(screen.getByText('2 hasil')).toBeVisible();
+  expect(screen.queryByText('Teh C')).not.toBeInTheDocument();
+  await userEvent.clear(search);
+  expect(screen.getByText('2 hasil')).toBeVisible();
+  await userEvent.type(search, 'teh');
+  expect(screen.getByText('Tidak ada produk yang cocok.')).toBeVisible();
+  await userEvent.click(screen.getByRole('button', { name: 'Reset filter' }));
+  expect(screen.getByText('3 hasil')).toBeVisible();
+  expect(search).toHaveValue('');
+  expect(getProducts).toHaveBeenCalledOnce();
+});
+
+test('opens one stock editor with the selected product value', async () => {
+  getProducts.mockResolvedValue(products);
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi A' }));
+  expect(screen.getByRole('form', { name: 'Edit stok' })).toBeVisible();
+  expect(screen.getByRole('spinbutton', { name: 'Stok baru' })).toHaveValue(0);
+});
+
+test('switching product resets the draft, cancel preserves stock and filters keep the editor', async () => {
+  getProducts.mockResolvedValue(products);
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi A' }));
+  await userEvent.clear(screen.getByRole('spinbutton', { name: 'Stok baru' }));
+  await userEvent.type(screen.getByRole('spinbutton', { name: 'Stok baru' }), '4');
+  await userEvent.click(screen.getByRole('button', { name: 'Edit stok Kopi B' }));
+  expect(screen.getByRole('spinbutton', { name: 'Stok baru' })).toHaveValue(9);
+  await userEvent.type(screen.getByRole('searchbox'), 'teh');
+  expect(screen.getByRole('form', { name: 'Edit stok' })).toHaveTextContent('Kopi B');
+  await userEvent.click(screen.getByRole('button', { name: 'Batal' }));
+  expect(screen.queryByRole('form')).not.toBeInTheDocument();
+  await userEvent.click(screen.getByRole('button', { name: 'Reset filter' }));
+  expect(screen.getByRole('row', { name: /Kopi A/ })).toHaveTextContent('0');
+});

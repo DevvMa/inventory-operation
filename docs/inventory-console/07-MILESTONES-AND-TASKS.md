@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T08 **DONE**, T09–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T13 **DONE**, T14–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -351,11 +351,11 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T06 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
 | T07 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
 | T08 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
-| T09 | TODO | — | Belum dijalankan |
-| T10 | TODO | — | Belum dijalankan |
-| T11 | TODO | — | Belum dijalankan |
-| T12 | TODO | — | Belum dijalankan |
-| T13 | TODO | — | Belum dijalankan |
+| T09 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
+| T10 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
+| T11 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
+| T12 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
+| T13 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
 | T14 | TODO | — | Belum dijalankan |
 | T15 | TODO | — | Belum dijalankan |
 | T16 | TODO | — | Belum dijalankan |

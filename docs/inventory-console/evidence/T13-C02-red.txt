@@ -1,0 +1,8 @@
+exit=1
+   × rejects an empty stock value without calling save and keeps focus on the input 197ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Duration  9.79s (environment 73%, setup 14%, tests 7%, import 5%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/StockEditor.test.jsx > rejects an empty stock value without calling save and keeps focus on the input
+TestingLibraryElementError: Unable to find an accessible element with the role "alert"

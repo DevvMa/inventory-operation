@@ -1,0 +1,8 @@
+exit=1
+   × opens one stock editor with the selected product value 247ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Duration  9.68s (environment 65%, tests 14%, setup 13%, import 6%, transform 3%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > opens one stock editor with the selected product value
+TestingLibraryElementError: Unable to find an accessible element with the role "form" and name "Edit stok"
