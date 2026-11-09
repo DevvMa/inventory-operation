@@ -1,0 +1,10 @@
+exit=1
+   × reports a save-specific HTTP error 30ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 12 passed (13)
+   Duration  7.89s (environment 80%, setup 16%, transform 2%, tests 1%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > reports a save-specific HTTP error
+AssertionError: expected [Function] to throw error including 'Tidak dapat menyimpan stok' but got 'Tidak dapat memuat data. Coba lagi.'
+Expected: "Tidak dapat menyimpan stok"
+Received: "Tidak dapat memuat data. Coba lagi."

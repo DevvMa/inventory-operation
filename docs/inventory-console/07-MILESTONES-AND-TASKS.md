@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T13 **DONE**, T14–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T19 **DONE**, T20–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -356,12 +356,12 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T11 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
 | T12 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
 | T13 | DONE | Filters/editor/validation and tests | M2 evidence in report 11 |
-| T14 | TODO | — | Belum dijalankan |
-| T15 | TODO | — | Belum dijalankan |
-| T16 | TODO | — | Belum dijalankan |
-| T17 | TODO | — | Belum dijalankan |
-| T18 | TODO | — | Belum dijalankan |
-| T19 | TODO | — | Belum dijalankan |
+| T14 | DONE | API/save integration and tests | M3 evidence in report 11 |
+| T15 | DONE | API/save integration and tests | M3 evidence in report 11 |
+| T16 | DONE | API/save integration and tests | M3 evidence in report 11 |
+| T17 | DONE | API/save integration and tests | M3 evidence in report 11 |
+| T18 | DONE | API/save integration and tests | M3 evidence in report 11 |
+| T19 | DONE | API/save integration and tests | M3 evidence in report 11 |
 | T20 | TODO | — | Belum dijalankan |
 | T21 | TODO | — | Belum dijalankan |
 | T22 | TODO | — | Belum dijalankan |

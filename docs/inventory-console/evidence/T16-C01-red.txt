@@ -1,0 +1,8 @@
+exit=1
+   × updates stock only after PATCH succeeds and keeps the success message after closing 220ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Duration  10.02s (environment 59%, tests 20%, setup 11%, import 5%, transform 4%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > updates stock only after PATCH succeeds and keeps the success message after closing
+AssertionError: expected "vi.fn()" to be called with arguments: [ 2, 12, ObjectContaining{…} ]

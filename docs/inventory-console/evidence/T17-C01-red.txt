@@ -1,0 +1,9 @@
+exit=1
+   × locks the form while a save is pending 26ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 6 passed (7)
+   Duration  8.60s (environment 70%, setup 14%, tests 9%, import 5%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/StockEditor.test.jsx > locks the form while a save is pending
+Error: expect(element).toBeDisabled()
+Received element is not disabled:

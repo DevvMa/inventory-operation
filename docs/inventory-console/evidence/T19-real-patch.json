@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "originalStock": 99,
+  "sentStock": 101,
+  "returnedStock": 101,
+  "subsequentGetStock": 99
+}

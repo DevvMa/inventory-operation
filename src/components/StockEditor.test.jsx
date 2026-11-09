@@ -38,3 +38,26 @@ test('accepts the unchanged integer value', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
   expect(onSave).toHaveBeenCalledWith(9);
 });
+
+test('locks the form while a save is pending', () => {
+  const onSave = vi.fn(), onCancel = vi.fn();
+  render(<StockEditor product={products[1]} isSaving={true} onSave={onSave} onCancel={onCancel} />);
+  expect(screen.getByRole('spinbutton')).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Menyimpan…' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Batal' })).toBeDisabled();
+  fireEvent.submit(screen.getByRole('form'));
+  expect(onSave).not.toHaveBeenCalled();
+});
+
+test('keeps the draft on save failure and supports correction and retry', async () => {
+  const onSave = vi.fn().mockRejectedValueOnce(new Error('Gagal menyimpan stok')).mockResolvedValueOnce(undefined);
+  render(<StockEditor product={products[1]} isSaving={false} onSave={onSave} onCancel={() => {}} />);
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(await screen.findByRole('alert')).toHaveTextContent('Gagal menyimpan stok');
+  expect(screen.getByRole('spinbutton')).toHaveValue(9);
+  await userEvent.clear(screen.getByRole('spinbutton')); await userEvent.type(screen.getByRole('spinbutton'), '12');
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(onSave).toHaveBeenCalledTimes(2);
+  expect(onSave).toHaveBeenLastCalledWith(12);
+});

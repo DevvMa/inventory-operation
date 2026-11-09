@@ -27,3 +27,13 @@ T09–T13 complete. Search/filter uses loaded data only; empty/reset and 0/9/10 
    Duration  9.91s (environment 72%, setup 15%, tests 8%, import 4%, transform 1%)
 
 Build passes (21 modules); git diff --check passes. Source and evidence are reviewed through the M2 PR.
+
+## M3 saving stock
+
+T14–T19 complete. Validated PATCH, pending controls, duplicate-save guard, failure/retry, filtered row removal, immutable update and unmount cancellation verified. Real PATCH id 1 changed returned stock 99→101; subsequent GET stayed 99, confirming simulated storage in this observation (evidence/T19-real-patch.json).
+
+ Test Files  6 passed (6)
+      Tests  54 passed (54)
+   Duration  12.60s (environment 71%, setup 14%, tests 10%, import 4%, transform 1%)
+
+Build passes; no blocking findings in agent self-review. M2 PR #3 confirmed automatic assignment job PASS after the permission fix; required test-and-build also PASS. Browser checks still require a working permitted browser tool.

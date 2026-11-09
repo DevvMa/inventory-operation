@@ -1,5 +1,5 @@
 import { afterEach, expect, test, vi } from 'vitest';
-import { getProducts } from './products.js';
+import { getProducts, updateStock } from './products.js';
 import { products } from '../tests/fixtures/products.js';
 
 afterEach(() => { vi.useRealTimers(); vi.unstubAllGlobals(); });
@@ -52,4 +52,33 @@ test('an already aborted caller does not start fetch', async () => {
   controller.abort();
   await expect(getProducts({ signal: controller.signal })).rejects.toMatchObject({ name: 'AbortError' });
   expect(fetch).not.toHaveBeenCalled();
+});
+
+test('PATCH sends JSON stock and returns only the confirmed id and stock', async () => {
+  respond({ ...products[0], stock: 12 });
+  expect(await updateStock(1, 12)).toEqual({ id: 1, stock: 12 });
+  expect(fetch).toHaveBeenCalledWith('https://dummyjson.com/products/1', expect.objectContaining({ method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ stock: 12 }) }));
+});
+
+test('reports a save-specific HTTP error', async () => {
+  respond({}, false);
+  await expect(updateStock(1, 12)).rejects.toThrow('Tidak dapat menyimpan stok');
+});
+
+test.each([null, {}, { id: 2, stock: 12 }, { id: 1, stock: 13 }, { id: 1, stock: '12' }])('rejects invalid or mismatched PATCH confirmation: %j', async (data) => {
+  respond(data);
+  await expect(updateStock(1, 12)).rejects.toThrow('Konfirmasi stok tidak valid');
+});
+
+test('PATCH timeout uses the same bounded request path', async () => {
+  vi.useFakeTimers();
+  vi.stubGlobal('fetch', vi.fn(() => new Promise(() => {})));
+  const check = expect(updateStock(1, 12)).rejects.toThrow('Waktu permintaan habis');
+  await vi.advanceTimersByTimeAsync(10_000);
+  await check;
+  expect(fetch.mock.calls[0][1].signal.aborted).toBe(true);
+});
+test('PATCH rejects malformed JSON', async () => {
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => { throw new SyntaxError('Invalid JSON'); } }));
+  await expect(updateStock(1, 12)).rejects.toThrow('Invalid JSON');
 });
