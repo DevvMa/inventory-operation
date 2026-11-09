@@ -1,6 +1,6 @@
 # Git workflow Inventory Operations Console
 
-Status: kebijakan proyek hasil sintesis dari [panduan PR DeployHQ](https://www.deployhq.com/blog/the-perfect-pull-request-best-practices-for-collaborative-development), diakses 9 November 2026. Ini konvensi proyek, bukan satu standar wajib seluruh industri.
+Status: kebijakan proyek solo hasil sintesis dari [panduan PR DeployHQ](https://www.deployhq.com/blog/the-perfect-pull-request-best-practices-for-collaborative-development), diakses 9 November 2026. Pengguna mengonfirmasi proyek dikerjakan sendiri. Ini konvensi proyek, bukan satu standar wajib seluruh industri.
 
 ## Fakta awal dan repository
 
@@ -31,7 +31,7 @@ Dokumentasi awal diamankan dalam root commit pada main. Ini bootstrap repo koson
 
 ## Merge
 
-Keputusan proyek: squash merge ke main setelah CI test-and-build lulus, branch mutakhir, temuan blocking selesai, dan reviewer independen menyetujui. Jika hanya ada satu maintainer, ketiadaan reviewer tidak boleh ditulis sebagai approval; catat pengecualian secara eksplisit oleh pemilik sebelum merge.
+Keputusan proyek solo: squash merge ke main setelah CI test-and-build lulus, branch mutakhir, self-review dilakukan, dan temuan blocking selesai. PR tetap wajib, tetapi jumlah approval wajib adalah 0. Review independen boleh diminta jika tersedia, bukan prasyarat merge. Jangan menyebut self-review sebagai approval independen. Agent hanya melakukan merge ketika pengguna secara eksplisit memintanya; konfirmasi bahwa proyek solo bukan instruksi merge PR saat ini.
 
 Setelah merge terkonfirmasi, sinkronkan main dan hapus branch fitur yang sudah selesai. Jangan force-push main. Jika fitur berikutnya bergantung pada PR belum merged, tunggu review atau gunakan stacked PR dengan base/dependensi yang dinyatakan jelas; jangan menyelundupkan milestone berikutnya ke PR sebelumnya.
 
@@ -41,8 +41,8 @@ Merge atau publikasi tidak dijalankan otomatis oleh pekerjaan M0. Revert squash 
 
 File PR template dan GitHub Actions disediakan di branch. Workflow menjalankan npm ci, tes sekali jalan, dan build pada PR/main. Node lokal serta CI memakai major 22; paket tepat terkunci di package-lock.json.
 
-Rekomendasi protection main: wajib PR, satu approval independen, dismiss stale review, cek test-and-build wajib, branch mutakhir, dan larangan force-push. Dokumentasi kebijakan bukan bukti setting GitHub sudah aktif. Status penerapan remote dan hasil CI dicatat pada laporan M0; jangan mengklaim ruleset/protection sudah terpasang jika belum diperiksa/dikonfigurasi.
+Protection main untuk proyek solo: PR wajib dengan 0 approval wajib, cek test-and-build wajib, branch mutakhir, percakapan review diselesaikan, dan larangan force-push. Dokumentasi kebijakan bukan bukti setting GitHub sudah aktif. Status penerapan remote dan hasil CI dicatat pada laporan M0; jangan mengklaim ruleset/protection sudah terpasang jika belum diperiksa/dikonfigurasi.
 
-Hasil penerapan 9 November 2026: endpoint protection berhasil menerima konfigurasi dan mengonfirmasi strict check test-and-build serta satu approval. Repo settings mengonfirmasi hanya squash merge diperbolehkan dan penghapusan branch setelah merge aktif. PR #1 masih OPEN/REVIEW_REQUIRED; bukti CI dan URL ada pada [laporan M0](10-M0-VERIFICATION.md).
+Riwayat penerapan 9 November 2026: konfigurasi awal meminta satu approval dan memblokir PR #1. Setelah pengguna mengonfirmasi proyek solo, aturan disesuaikan menjadi 0 approval wajib; strict check test-and-build dan aturan lain tetap dipertahankan. Hasil pemeriksaan remote dicatat pada [laporan M0](10-M0-VERIFICATION.md).
 
 M0 merupakan pengecualian bootstrap runner, bukan alasan menunda tes fitur ke akhir. Baca [Alur TDD](08-TDD-WORKFLOW.md) dan [task list](07-MILESTONES-AND-TASKS.md).

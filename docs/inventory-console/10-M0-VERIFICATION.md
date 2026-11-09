@@ -33,10 +33,16 @@ Perintah saat pengembangan: npm run dev; tes watch: npm test; sekali jalan: npm 
 
 Repo terkonfirmasi kosong melalui gh repo view. main dibuat dengan dokumentasi baseline dan berhasil dipush. Pekerjaan M0 berada pada chore/m0-react-tdd-foundation. [Kebijakan workflow](09-GIT-WORKFLOW.md) dan PR template tersedia; tidak ada merge atau deployment otomatis.
 
-Status remote terverifikasi 9 November 2026:
+Riwayat konfigurasi awal, terverifikasi 9 November 2026 sebelum penyesuaian proyek solo:
 
 - [PR #1](https://github.com/DevvMa/inventory-operation/pull/1) OPEN, reviewDecision REVIEW_REQUIRED.
 - CI test-and-build pada commit 4a8c669 SUCCESS, durasi job 9 detik: [run pertama](https://github.com/DevvMa/inventory-operation/actions/runs/42631965791/job/129210261077). Pembaruan catatan ini memicu run baru; periksa status head terbaru sebelum merge.
 - API GitHub mengonfirmasi main protected: strict status check test-and-build dan satu approving review; stale reviews dismissed, conversation resolution dan enforce admins diminta pada konfigurasi protection yang berhasil diterapkan.
 - Settings repo mengonfirmasi squash merge aktif, merge commit/rebase merge nonaktif, serta hapus branch setelah merge aktif.
 - Belum ada review independen, merge, atau deployment. Tidak ada klaim bahwa author self-review memenuhi approval wajib.
+
+## Penyesuaian proyek solo
+
+Pengguna mengonfirmasi proyek dikerjakan sendiri. Endpoint protection diperbarui lalu dibaca ulang: required_approving_review_count=0, dismiss_stale_reviews=false; strict status check test-and-build tetap aktif, conversation resolution tetap aktif, force-push tetap dilarang. Objek required_pull_request_reviews dipertahankan agar jalur PR tetap digunakan tanpa meminta approval eksternal.
+
+Pemeriksaan PR #1 sesudah perubahan: OPEN, mergeStateStatus=CLEAN, reviewDecision kosong; CI pada head 47f09fa SUCCESS. Pembaruan dokumentasi ini akan memicu pemeriksaan CI baru. PR tidak di-merge. Template dan deskripsi PR diselaraskan dengan kebijakan solo; self-review tidak diklaim sebagai review independen.

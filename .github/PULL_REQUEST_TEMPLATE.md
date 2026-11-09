@@ -20,4 +20,4 @@ Describe unverified behavior, external API limitations, configuration changes, a
 
 ## Review and merge
 
-Resolve blocking findings, obtain review, and wait for CI before squash-merging into main. Do not treat author self-review as independent approval.
+Solo project: self-review the diff, resolve blocking findings, and wait for required CI before squash-merging into main. External approval is optional, not required. Record self-review accurately; do not label it independent approval. Merging requires an explicit user instruction.
