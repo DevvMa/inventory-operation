@@ -43,4 +43,6 @@ File PR template dan GitHub Actions disediakan di branch. Workflow menjalankan n
 
 Rekomendasi protection main: wajib PR, satu approval independen, dismiss stale review, cek test-and-build wajib, branch mutakhir, dan larangan force-push. Dokumentasi kebijakan bukan bukti setting GitHub sudah aktif. Status penerapan remote dan hasil CI dicatat pada laporan M0; jangan mengklaim ruleset/protection sudah terpasang jika belum diperiksa/dikonfigurasi.
 
+Hasil penerapan 9 November 2026: endpoint protection berhasil menerima konfigurasi dan mengonfirmasi strict check test-and-build serta satu approval. Repo settings mengonfirmasi hanya squash merge diperbolehkan dan penghapusan branch setelah merge aktif. PR #1 masih OPEN/REVIEW_REQUIRED; bukti CI dan URL ada pada [laporan M0](10-M0-VERIFICATION.md).
+
 M0 merupakan pengecualian bootstrap runner, bukan alasan menunda tes fitur ke akhir. Baca [Alur TDD](08-TDD-WORKFLOW.md) dan [task list](07-MILESTONES-AND-TASKS.md).
