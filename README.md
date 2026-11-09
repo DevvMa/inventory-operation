@@ -2,6 +2,8 @@
 
 React learning prototype for a single inventory workflow. Current implementation status and verification: [project documentation](docs/inventory-console/README.md).
 
+Load up to 50 real API products, search/filter them, and edit stock through a simulated PATCH. Loading, error/retry, validation, pending locks, and session-only updates are implemented. 63 automated tests and the build pass. Browser checks and the owner's learning exercise are still pending; see the [handoff](docs/inventory-console/14-FINAL-HANDOFF.md).
+
 ## Local development
 
 Use Node 22.12 or later within major 22 and npm. Install the locked dependencies with npm ci.
