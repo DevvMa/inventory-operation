@@ -1,0 +1,30 @@
+exit=1
+   × rejects invalid or mismatched PATCH confirmation: null 25ms
+   × rejects invalid or mismatched PATCH confirmation: {} 9ms
+   × rejects invalid or mismatched PATCH confirmation: {"id":2,"stock":12} 5ms
+   × rejects invalid or mismatched PATCH confirmation: {"id":1,"stock":13} 2ms
+   × rejects invalid or mismatched PATCH confirmation: {"id":1,"stock":"12"} 2ms
+ Test Files  1 failed (1)
+      Tests  5 failed | 13 passed (18)
+   Duration  7.53s (environment 81%, setup 15%, transform 2%, tests 1%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > rejects invalid or mismatched PATCH confirmation: null
+AssertionError: expected [Function] to throw error including 'Konfirmasi stok tidak valid' but got 'Cannot read properties of null (readi…'
+Expected: "Konfirmasi stok tidak valid"
+Received: "Cannot read properties of null (reading 'id')"
+ FAIL  src/api/products.test.js > rejects invalid or mismatched PATCH confirmation: {}
+AssertionError: promise resolved "{ id: undefined, stock: undefined }" instead of rejecting
+- Expected
++ Received
+ FAIL  src/api/products.test.js > rejects invalid or mismatched PATCH confirmation: {"id":2,"stock":12}
+AssertionError: promise resolved "{ id: 2, stock: 12 }" instead of rejecting
+- Expected
++ Received
+ FAIL  src/api/products.test.js > rejects invalid or mismatched PATCH confirmation: {"id":1,"stock":13}
+AssertionError: promise resolved "{ id: 1, stock: 13 }" instead of rejecting
+- Expected
++ Received
+ FAIL  src/api/products.test.js > rejects invalid or mismatched PATCH confirmation: {"id":1,"stock":"12"}
+AssertionError: promise resolved "{ id: 1, stock: '12' }" instead of rejecting
+- Expected
++ Received

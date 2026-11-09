@@ -1,0 +1,10 @@
+exit=1
+   × PATCH sends JSON stock and returns only the confirmed id and stock 20ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 11 passed (12)
+   Duration  7.32s (environment 80%, setup 16%, transform 2%, tests 1%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > PATCH sends JSON stock and returns only the confirmed id and stock
+AssertionError: expected { id: 1, stock: +0 } to deeply equal { id: 1, stock: 12 }
+- Expected
++ Received

@@ -70,3 +70,7 @@ T04-C01–C04: GET success, HTTP failure, data validation and timeout each obser
 ## M2 observed cycles
 
 T09-C01 controlled filters, T10-C01 combined search/filter, T12-C01 editor selection, T13-C01 valid zero submit and T13-C02 empty validation each observed Red/Green. Product switching/cancel and numeric boundaries already passed after the general rules; labelled confirmation in evidence. Refactor extracted parseStock for the safe-integer rule; no extra state library.
+
+## M3 observed cycles
+
+T14-C01–C03 PATCH request, save-specific HTTP error, and invalid confirmation; T16-C01 page save; T17-C01 pending controls; T17-C02 failure/retry all observed Red/Green. Integration/teardown and shared timeout/JSON paths are confirmation tests. A misplaced hook during T16 implementation was caught by the suite and fixed before Green. Red matcher was corrected to accept the actual jest-dom assertion format for T17. Removed the temporary M2 saveEnabled flag after PATCH was connected. Evidence files retain actual outcomes.

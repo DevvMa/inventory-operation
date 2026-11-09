@@ -2,11 +2,11 @@ import { render, screen, waitFor, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, expect, test, vi } from 'vitest';
 import InventoryPage from './InventoryPage.jsx';
-import { getProducts } from '../api/products.js';
+import { getProducts, updateStock } from '../api/products.js';
 import { products } from '../tests/fixtures/products.js';
 
-vi.mock('../api/products.js', () => ({ getProducts: vi.fn() }));
-beforeEach(() => { getProducts.mockReset().mockImplementation(() => new Promise(() => {})); });
+vi.mock('../api/products.js', () => ({ getProducts: vi.fn(), updateStock: vi.fn() }));
+beforeEach(() => { getProducts.mockReset().mockImplementation(() => new Promise(() => {})); updateStock.mockReset(); });
 
 test('explains that demo stock changes last only for the current session', () => {
   render(<InventoryPage />);
@@ -106,4 +106,68 @@ test('switching product resets the draft, cancel preserves stock and filters kee
   expect(screen.queryByRole('form')).not.toBeInTheDocument();
   await userEvent.click(screen.getByRole('button', { name: 'Reset filter' }));
   expect(screen.getByRole('row', { name: /Kopi A/ })).toHaveTextContent('0');
+});
+
+test('updates stock only after PATCH succeeds and keeps the success message after closing', async () => {
+  getProducts.mockResolvedValue(products);
+  let finish;
+  updateStock.mockImplementation(() => new Promise((resolve) => { finish = resolve; }));
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi B' }));
+  const input = screen.getByRole('spinbutton');
+  await userEvent.clear(input); await userEvent.type(input, '12');
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(updateStock).toHaveBeenCalledWith(2, 12, expect.objectContaining({ signal: expect.any(AbortSignal) }));
+  expect(screen.getByRole('row', { name: /Kopi B/ })).toHaveTextContent('9');
+  await act(async () => { finish({ id: 2, stock: 12 }); });
+  expect(await screen.findByRole('status')).toHaveTextContent('Stok Kopi B diperbarui menjadi 12.');
+  expect(screen.queryByRole('form')).not.toBeInTheDocument();
+  expect(screen.getByRole('row', { name: /Kopi B/ })).toHaveTextContent('12');
+  expect(screen.getByRole('row', { name: /Kopi A/ })).toHaveTextContent('0');
+});
+
+test('prevents duplicate saves and editing while pending but keeps filtering available', async () => {
+  getProducts.mockResolvedValue(products);
+  let finish;
+  updateStock.mockImplementation(() => new Promise((resolve) => { finish = resolve; }));
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi B' }));
+  await userEvent.dblClick(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(updateStock).toHaveBeenCalledOnce();
+  expect(screen.getByRole('spinbutton')).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Batal' })).toBeDisabled();
+  expect(screen.getByRole('button', { name: 'Edit stok Kopi A' })).toBeDisabled();
+  expect(screen.getByRole('searchbox')).toBeEnabled();
+  await act(async () => { finish({ id: 2, stock: 9 }); });
+});
+test('failed save preserves stock and draft; retry success removes a row from the low-stock filter', async () => {
+  getProducts.mockResolvedValue(products);
+  updateStock.mockRejectedValueOnce(new Error('Gagal menyimpan stok')).mockResolvedValueOnce({ id: 2, stock: 12 });
+  render(<InventoryPage />);
+  await screen.findByRole('table');
+  await userEvent.click(screen.getByRole('checkbox', { name: /Stok rendah/ }));
+  await userEvent.click(screen.getByRole('button', { name: 'Edit stok Kopi B' }));
+  await userEvent.clear(screen.getByRole('spinbutton')); await userEvent.type(screen.getByRole('spinbutton'), '12');
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(await screen.findByRole('alert')).toHaveTextContent('Gagal menyimpan stok');
+  expect(screen.getByRole('spinbutton')).toHaveValue(12);
+  expect(screen.getByRole('row', { name: /Kopi B/ })).toHaveTextContent('9');
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  expect(await screen.findByRole('status')).toHaveTextContent('Stok Kopi B diperbarui menjadi 12.');
+  expect(screen.queryByRole('row', { name: /Kopi B/ })).not.toBeInTheDocument();
+  expect(screen.getByText('1 hasil')).toBeVisible();
+});
+test('aborts a save on unmount and ignores late success after remount', async () => {
+  getProducts.mockResolvedValue(products);
+  let finish;
+  updateStock.mockImplementation(() => new Promise((resolve) => { finish = resolve; }));
+  const view = render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi B' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  const signal = updateStock.mock.calls[0][2].signal;
+  view.unmount(); expect(signal.aborted).toBe(true);
+  render(<InventoryPage />); await screen.findByRole('table');
+  await act(async () => { finish({ id: 2, stock: 99 }); });
+  expect(screen.queryByText(/diperbarui menjadi/)).not.toBeInTheDocument();
+  expect(screen.getByRole('row', { name: /Kopi B/ })).toHaveTextContent('9');
 });

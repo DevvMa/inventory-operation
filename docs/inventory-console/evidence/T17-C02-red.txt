@@ -1,0 +1,8 @@
+exit=1
+   × keeps the draft on save failure and supports correction and retry 1069ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Duration  10.07s (environment 61%, tests 18%, setup 13%, import 4%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/StockEditor.test.jsx > keeps the draft on save failure and supports correction and retry
+TestingLibraryElementError: Unable to find role="alert"
