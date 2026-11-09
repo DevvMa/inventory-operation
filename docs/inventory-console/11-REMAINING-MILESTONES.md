@@ -15,3 +15,5 @@ T04–T08 implemented on feat/m1-product-loading.
 - Browser layout and CORS are reserved for T25; CLI GET is not browser evidence.
 
 M1 gate: 19 tests pass across three files; npm run build passes (18 modules); git diff --check passes. PR is created from the M1 branch after this gate; GitHub PR history records review, required CI, assignee, and merge outcome.
+
+PR #2 runtime finding: required test-and-build passed, but the assignment workflow from main failed with HTTP 403. DevvMa is already assigned manually. Add pull-requests:write for the PR metadata operation; [GitHub API docs](https://docs.github.com/en/rest/issues/assignees#add-assignees-to-an-issue) list write permissions for this endpoint. Because pull_request_target uses the base workflow, the fix takes effect after merge and must be checked on the next PR. Do not claim the historical assignment run passed. Merge still requires the protected test-and-build check; no admin bypass.
