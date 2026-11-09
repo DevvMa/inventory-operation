@@ -24,22 +24,24 @@ Dokumentasi awal diamankan dalam root commit pada main. Ini bootstrap repo koson
 2. Ikuti task berurutan dan proses Red → Green → refactor pada perilaku baru.
 3. Jalankan tes terkait, suite penuh pada gerbang, build, dan git diff --check. Catat cek manual yang belum diizinkan secara eksplisit.
 4. Self-review diff untuk ketepatan scope, error path, tidak ada secret, dan dokumentasi aman.
-5. Push branch dan buat PR ke main memakai template .github. Judul mengikuti Conventional Commits agar cocok menjadi squash commit.
+5. Push branch dan buat PR ke main memakai template .github. Assign setiap PR ke akun pengguna DevvMa. Workflow assign-pr.yml menerapkan assignment saat PR dibuka/dibuka ulang setelah workflow tersedia pada base branch; tetap periksa assignee dari hasil API. Judul mengikuti Conventional Commits agar cocok menjadi squash commit.
 6. Deskripsi menjelaskan masalah/hasil, task yang tercakup, urutan review, hasil verifikasi, keterbatasan, dan deployment/rollback. Lampirkan screenshot hanya jika benar-benar diambil dengan izin; jangan mencentang pengujian yang belum dilakukan.
 7. Usahakan diff source kecil dan satu tujuan. PR M0 memuat lockfile generated yang dapat besar; arahkan reviewer ke source/config lebih dahulu. Rencana awal sudah menjadi baseline terpisah.
 8. Perbaiki temuan blocking dan jalankan kembali cek terdampak. Temuan nonblocking diberi label nit/suggestion; pertanyaan diberi question.
 
 ## Merge
 
-Keputusan proyek solo: squash merge ke main setelah CI test-and-build lulus, branch mutakhir, self-review dilakukan, dan temuan blocking selesai. PR tetap wajib, tetapi jumlah approval wajib adalah 0. Review independen boleh diminta jika tersedia, bukan prasyarat merge. Jangan menyebut self-review sebagai approval independen. Agent hanya melakukan merge ketika pengguna secara eksplisit memintanya; konfirmasi bahwa proyek solo bukan instruksi merge PR saat ini.
+Keputusan proyek solo: squash merge ke main setelah CI test-and-build lulus pada head terbaru, branch mutakhir, review dilakukan, dan temuan blocking selesai. PR tetap wajib, tetapi jumlah approval wajib adalah 0. Review independen boleh diminta jika tersedia, bukan prasyarat merge. Jangan menyebut self-review sebagai approval independen. Pengguna secara eksplisit mengizinkan agent melakukan review dan merge serta meminta setiap PR diassign ke DevvMa; izin ini berlaku untuk kelanjutan proyek tanpa meminta konfirmasi merge berulang. Jika ada blocking finding, perbaiki dan ulangi cek sebelum merge. Jangan memakai bypass admin.
 
 Setelah merge terkonfirmasi, sinkronkan main dan hapus branch fitur yang sudah selesai. Jangan force-push main. Jika fitur berikutnya bergantung pada PR belum merged, tunggu review atau gunakan stacked PR dengan base/dependensi yang dinyatakan jelas; jangan menyelundupkan milestone berikutnya ke PR sebelumnya.
 
-Merge atau publikasi tidak dijalankan otomatis oleh pekerjaan M0. Revert squash commit melalui PR baru bila perlu rollback; tidak ada deployment/migrasi database dalam scope demo ini.
+PR #1/M0 kini boleh di-merge setelah review dan CI sesuai izin pengguna terbaru. Izin merge tidak mencakup deployment atau publikasi website. Revert squash commit melalui PR baru bila perlu rollback; tidak ada deployment/migrasi database dalam scope demo ini.
 
 ## Otomasi dan batas penerapan
 
 File PR template dan GitHub Actions disediakan di branch. Workflow menjalankan npm ci, tes sekali jalan, dan build pada PR/main. Node lokal serta CI memakai major 22; paket tepat terkunci di package-lock.json.
+
+Workflow assignment hanya mengubah metadata melalui API dengan izin issues:write; tidak checkout atau menjalankan kode PR dalam konteks pull_request_target. PR #1 diassign manual karena workflow belum ada pada main saat PR tersebut dibuat. Keberhasilan workflow untuk PR berikutnya harus diperiksa saat event sebenarnya terjadi, bukan diklaim sudah diuji dari review YAML.
 
 Protection main untuk proyek solo: PR wajib dengan 0 approval wajib, cek test-and-build wajib, branch mutakhir, percakapan review diselesaikan, dan larangan force-push. Dokumentasi kebijakan bukan bukti setting GitHub sudah aktif. Status penerapan remote dan hasil CI dicatat pada laporan M0; jangan mengklaim ruleset/protection sudah terpasang jika belum diperiksa/dikonfigurasi.
 

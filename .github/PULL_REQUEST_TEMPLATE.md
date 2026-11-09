@@ -20,4 +20,4 @@ Describe unverified behavior, external API limitations, configuration changes, a
 
 ## Review and merge
 
-Solo project: self-review the diff, resolve blocking findings, and wait for required CI before squash-merging into main. External approval is optional, not required. Record self-review accurately; do not label it independent approval. Merging requires an explicit user instruction.
+Assign this PR to DevvMa. Solo project: review the diff, resolve blocking findings, and wait for required CI before squash-merging into main. External approval is optional, not required. The user has authorized the agent to review and merge after these checks. Record agent self-review accurately; do not label it independent approval. Assignment does not replace review or authorize bypassing required checks.
