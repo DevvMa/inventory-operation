@@ -17,3 +17,13 @@ T04–T08 implemented on feat/m1-product-loading.
 M1 gate: 19 tests pass across three files; npm run build passes (18 modules); git diff --check passes. PR is created from the M1 branch after this gate; GitHub PR history records review, required CI, assignee, and merge outcome.
 
 PR #2 runtime finding: required test-and-build passed, but the assignment workflow from main failed with HTTP 403. DevvMa is already assigned manually. Add pull-requests:write for the PR metadata operation; [GitHub API docs](https://docs.github.com/en/rest/issues/assignees#add-assignees-to-an-issue) list write permissions for this endpoint. Because pull_request_target uses the base workflow, the fix takes effect after merge and must be checked on the next PR. Do not claim the historical assignment run passed. Merge still requires the protected test-and-build check; no admin bypass.
+
+## M2 search and editor
+
+T09–T13 complete. Search/filter uses loaded data only; empty/reset and 0/9/10 boundaries verified. Selected editor survives filtering; switching resets draft; cancel does not mutate stock. Invalid input is rejected before save; zero and unchanged integers accepted. Saving is temporarily disabled on the page until M3 connects PATCH.
+
+ Test Files  6 passed (6)
+      Tests  39 passed (39)
+   Duration  9.91s (environment 72%, setup 15%, tests 8%, import 4%, transform 1%)
+
+Build passes (21 modules); git diff --check passes. Source and evidence are reviewed through the M2 PR.

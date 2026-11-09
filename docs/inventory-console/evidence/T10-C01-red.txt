@@ -1,0 +1,8 @@
+exit=1
+   × combines trimmed case-insensitive search with low-stock filtering and reset 171ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 passed (8)
+   Duration  8.66s (environment 68%, setup 14%, tests 9%, import 6%, transform 3%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > combines trimmed case-insensitive search with low-stock filtering and reset
+TestingLibraryElementError: Unable to find an accessible element with the role "searchbox" and name "Cari produk"

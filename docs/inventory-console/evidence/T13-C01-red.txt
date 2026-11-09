@@ -1,0 +1,8 @@
+exit=1
+   × submits zero as an integer stock value 345ms
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Duration  8.72s (environment 74%, setup 14%, import 5%, tests 4%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/StockEditor.test.jsx > submits zero as an integer stock value
+AssertionError: expected "vi.fn()" to be called with arguments: [ +0 ]

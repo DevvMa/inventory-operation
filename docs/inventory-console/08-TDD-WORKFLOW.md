@@ -66,3 +66,7 @@ Reviewer membaca hasil tes dan urutannya, bukan hanya jumlah tes terakhir. Jika 
 ## M1 observed cycles
 
 T04-C01–C04: GET success, HTTP failure, data validation and timeout each observed Red then Green. Invalid JSON and caller abort are confirmation tests. T06-C01–C03: loading, count and error/retry observed Red/Green; cleanup/late result is confirmation. T07-C01–C03: table, page integration and API-empty state observed Red/Green. Details: evidence/ files. No extra abstraction after Green beyond requestJson.
+
+## M2 observed cycles
+
+T09-C01 controlled filters, T10-C01 combined search/filter, T12-C01 editor selection, T13-C01 valid zero submit and T13-C02 empty validation each observed Red/Green. Product switching/cancel and numeric boundaries already passed after the general rules; labelled confirmation in evidence. Refactor extracted parseStock for the safe-integer rule; no extra state library.

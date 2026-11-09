@@ -1,0 +1,8 @@
+exit=1
+   × provides labelled controlled search, filter and reset callbacks 273ms
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Duration  9.05s (environment 72%, setup 16%, import 6%, tests 3%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/InventoryFilters.test.jsx > provides labelled controlled search, filter and reset callbacks
+TestingLibraryElementError: Unable to find an accessible element with the role "searchbox" and name "Cari produk"
