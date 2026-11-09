@@ -1,0 +1,10 @@
+exit=1
+   × moves focus into the editor and returns to search after cancel or success 194ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 14 passed (15)
+   Duration  10.73s (environment 52%, tests 29%, setup 11%, import 4%, transform 4%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > moves focus into the editor and returns to search after cancel or success
+Error: expect(element).toHaveFocus()
+Expected element with focus:
+Received element with focus:

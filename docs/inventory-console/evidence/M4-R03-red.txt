@@ -1,0 +1,20 @@
+exit=1
+   × PATCH rejects malformed JSON 65ms
+   × gives actionable feedback for a native GET network failure 6ms
+   × gives actionable feedback for a native PATCH network failure 4ms
+ Test Files  1 failed (1)
+      Tests  3 failed | 20 passed (23)
+   Duration  7.86s (environment 76%, setup 17%, transform 4%, tests 3%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > PATCH rejects malformed JSON
+AssertionError: expected [Function] to throw error including 'Tidak dapat menyimpan stok' but got 'Invalid JSON'
+Expected: "Tidak dapat menyimpan stok"
+Received: "Invalid JSON"
+ FAIL  src/api/products.test.js > gives actionable feedback for a native GET network failure
+AssertionError: expected [Function] to throw error including 'Tidak dapat memuat data' but got 'Failed to fetch'
+Expected: "Tidak dapat memuat data"
+Received: "Failed to fetch"
+ FAIL  src/api/products.test.js > gives actionable feedback for a native PATCH network failure
+AssertionError: expected [Function] to throw error including 'Tidak dapat menyimpan stok' but got 'Failed to fetch'
+Expected: "Tidak dapat menyimpan stok"
+Received: "Failed to fetch"

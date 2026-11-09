@@ -1,0 +1,4 @@
+exit=0
+ Test Files  1 passed (1)
+      Tests  15 passed (15)
+   Duration  10.80s (environment 52%, tests 29%, setup 12%, import 5%, transform 3%)

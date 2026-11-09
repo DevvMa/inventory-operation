@@ -1,0 +1,10 @@
+exit=1
+   × announces that the editor is busy while saving 28ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Duration  8.76s (environment 67%, setup 15%, tests 11%, import 5%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/StockEditor.test.jsx > announces that the editor is busy while saving
+Error: expect(element).toHaveAttribute("aria-busy", "true") // element.getAttribute("aria-busy") === "true"
+Expected the element to have attribute:
+Received:

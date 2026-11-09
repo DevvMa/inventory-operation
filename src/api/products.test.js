@@ -80,5 +80,16 @@ test('PATCH timeout uses the same bounded request path', async () => {
 });
 test('PATCH rejects malformed JSON', async () => {
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => { throw new SyntaxError('Invalid JSON'); } }));
-  await expect(updateStock(1, 12)).rejects.toThrow('Invalid JSON');
+  await expect(updateStock(1, 12)).rejects.toThrow('Tidak dapat menyimpan stok');
+});
+
+test('caps an oversized but valid API response at 50 products', async () => {
+  const oversized = Array.from({ length: 51 }, (_, index) => ({ ...products[0], id: index + 1 }));
+  respond({ products: oversized });
+  expect(await getProducts()).toEqual(oversized.slice(0, 50));
+});
+
+test.each([['GET', 'Tidak dapat memuat data'], ['PATCH', 'Tidak dapat menyimpan stok']])('gives actionable feedback for a native %s network failure', async (method, message) => {
+  vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));
+  await expect(method === 'GET' ? getProducts() : updateStock(1, 12)).rejects.toThrow(message);
 });

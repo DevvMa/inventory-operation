@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T19 **DONE**, T20–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T24 **DONE**, T25 **WAITING**, T26–T30 pending final handoff. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -362,12 +362,12 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T17 | DONE | API/save integration and tests | M3 evidence in report 11 |
 | T18 | DONE | API/save integration and tests | M3 evidence in report 11 |
 | T19 | DONE | API/save integration and tests | M3 evidence in report 11 |
-| T20 | TODO | — | Belum dijalankan |
-| T21 | TODO | — | Belum dijalankan |
-| T22 | TODO | — | Belum dijalankan |
-| T23 | TODO | — | Belum dijalankan |
-| T24 | TODO | — | Belum dijalankan |
-| T25 | TODO | — | Belum dijalankan; persetujuan browser belum tercatat |
+| T20 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
+| T21 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
+| T22 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
+| T23 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
+| T24 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
+| T25 | WAITING | 13-BROWSER-CHECK.md | Internal browser consent given; tool failed twice; alternative browser consent pending |
 | T26 | TODO | — | Belum dijalankan |
 | T27 | TODO | — | Belum dijalankan |
 | T28 | TODO | — | Belum dijalankan |
