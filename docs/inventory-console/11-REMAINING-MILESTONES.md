@@ -47,3 +47,7 @@ T20–T24 complete. Responsive CSS implemented; focus, busy state, live result c
    Duration  11.87s (environment 70%, setup 14%, tests 12%, import 3%)
 
 Build passes (22 modules); HTTP app 200, real API origin header permits the local origin. T25 remains WAITING: internal-browser control failed twice at tool startup; alternative-browser consent pending. No browser/screenshot/screen-reader success claimed. See 13-BROWSER-CHECK.md. Demo/learning guide prepared for T28/T29.
+
+## M5 handoff
+
+T26 requirement audit complete in report 14. T27 setup/context docs and project rules updated. T28 three-minute guide prepared in report 12. T29 WAITING for owner answers and the small-change exercise; no mastery claim. T30 reports the actual incomplete external checks. T25 remains WAITING for a working permitted browser. All code PRs #2–#5 are merged; the final documentation PR follows the same assignment/CI/review/merge workflow.

@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T24 **DONE**, T25 **WAITING**, T26–T30 pending final handoff. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T24, T26–T28, T30 **DONE**; T25 dan T29 **WAITING**. Lihat 14-FINAL-HANDOFF.md untuk batas bukti. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -368,11 +368,11 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T23 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
 | T24 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
 | T25 | WAITING | 13-BROWSER-CHECK.md | Internal browser consent given; tool failed twice; alternative browser consent pending |
-| T26 | TODO | — | Belum dijalankan |
-| T27 | TODO | — | Belum dijalankan |
-| T28 | TODO | — | Belum dijalankan |
-| T29 | TODO | — | Belum dijalankan |
-| T30 | TODO | — | Belum dijalankan |
+| T26 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
+| T27 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
+| T28 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
+| T29 | WAITING | 12-DEMO-AND-LEARNING-GUIDE.md | Owner explanation/exercise requested; no answer received |
+| T30 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
 
 ## Aturan saat anggaran habis
 
