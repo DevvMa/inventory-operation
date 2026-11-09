@@ -1,6 +1,6 @@
 # Alur TDD Inventory Operations Console
 
-Status: keputusan proses versi 0.2, 9 November 2026. Belum ada siklus TDD yang dijalankan. Berlaku untuk [milestone dan task](07-MILESTONES-AND-TASKS.md); scope produk tetap mengikuti PRD.
+Status: keputusan proses versi 0.2, 9 November 2026. Siklus T03-C01 sudah dijalankan; bukti lengkap di [laporan M0](10-M0-VERIFICATION.md). Berlaku untuk [milestone dan task](07-MILESTONES-AND-TASKS.md); scope produk tetap mengikuti PRD.
 
 ## Fakta dari buku rujukan
 
@@ -49,7 +49,7 @@ Tambahkan satu baris per siklus di tabel berikut ketika benar-benar dijalankan. 
 
 | Siklus / requirement / tanggal | Perilaku dan tes | Red: perintah, assertion gagal aktual | Green: perintah dan hasil aktual | Refactor atau alasan tidak perlu; hasil tes ulang |
 | --- | --- | --- | --- | --- |
-| Belum ada | Belum dijalankan | — | — | — |
+| T03-C01 / R07 / 9 November 2026 | InventoryPage.test.jsx: batas penyimpanan sesi terlihat | npm run test:run -- src/pages/InventoryPage.test.jsx; 1 failed, teks pemberitahuan tidak ditemukan | npm run test:run; 1 passed setelah pemberitahuan ditambahkan | Tidak perlu abstraksi tambahan pada halaman kecil; suite 1 passed dan build lulus; lihat laporan M0 |
 
 Task perilaku baru dianggap DONE setelah siklus relevannya selesai dan bukti ditautkan dari ledger. Task audit tidak boleh mengklaim TDD secara retrospektif; periksa bukti task pembentuknya. Jangan menyerahkan task berikutnya pada keadaan Red. Jika sesi terhenti saat Red, tandai DOING dan handoff nama tes serta alasan gagal, bukan DONE.
 
