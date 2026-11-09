@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T03 **DONE**, T04–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T08 **DONE**, T09–T30 **TODO**. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -346,11 +346,11 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T01 | DONE | package.json/lockfile, index.html, src/main.jsx, src/App.jsx, vite.config.js | Build awal lulus; dokumentasi dipertahankan; laporan M0 |
 | T02 | DONE | vite.config.js, src/tests/setup.js, paket tes | Probe runner gagal/lulus aktual, lalu dihapus; laporan M0 |
 | T03 | DONE | src/pages/InventoryPage.jsx/test.jsx, fixture, src/App.jsx | T03-C01 Red/Green; 1 tes lulus; build akhir lulus |
-| T04 | TODO | — | Belum dijalankan |
-| T05 | TODO | — | Belum dijalankan |
-| T06 | TODO | — | Belum dijalankan |
-| T07 | TODO | — | Belum dijalankan |
-| T08 | TODO | — | Belum dijalankan |
+| T04 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
+| T05 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
+| T06 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
+| T07 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
+| T08 | DONE | API/page/table and tests | M1 evidence and 11-REMAINING-MILESTONES.md |
 | T09 | TODO | — | Belum dijalankan |
 | T10 | TODO | — | Belum dijalankan |
 | T11 | TODO | — | Belum dijalankan |

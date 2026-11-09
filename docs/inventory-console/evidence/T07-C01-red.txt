@@ -1,0 +1,8 @@
+exit=1
+   × shows product data, stock labels and an edit action 256ms
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Duration  7.84s (environment 73%, setup 16%, import 5%, tests 4%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/components/ProductTable.test.jsx > shows product data, stock labels and an edit action
+TestingLibraryElementError: Unable to find an accessible element with the role "table"

@@ -1,0 +1,9 @@
+   × rejects an unsuccessful HTTP response 11ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > rejects an unsuccessful HTTP response
+AssertionError: promise resolved "[ …(3) ]" instead of rejecting
+- Expected:
++ Received:
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Duration  3.78s (environment 82%, setup 15%, transform 2%, tests 1%)

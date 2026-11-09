@@ -1,0 +1,8 @@
+exit=1
+   × shows products from the API in the table 1033ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 5 passed (6)
+   Duration  9.09s (environment 58%, tests 22%, setup 12%, import 5%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > shows products from the API in the table
+TestingLibraryElementError: Unable to find role="table"

@@ -1,0 +1,29 @@
+   × rejects an invalid response shape: null 10ms
+   × rejects an invalid response shape: {} 2ms
+   × rejects an invalid response shape: {"products":[{}]} 2ms
+   × rejects an invalid response shape: {"products":[{"id":1,"title":"Kopi A","category":"groceries","price":20,"stock":-1}]} 1ms
+   × rejects an invalid response shape: {"products":[{"id":1,"title":"Kopi A","category":"groceries","price":null,"stock":0}]} 1ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 5 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > rejects an invalid response shape: null
+AssertionError: expected [Function] to throw error including 'Data produk tidak valid' but got 'Cannot read properties of null (readi…'
+Expected: "Data produk tidak valid"
+Received: "Cannot read properties of null (reading 'products')"
+ FAIL  src/api/products.test.js > rejects an invalid response shape: {}
+AssertionError: promise resolved "undefined" instead of rejecting
+- Expected:
++ Received:
+ FAIL  src/api/products.test.js > rejects an invalid response shape: {"products":[{}]}
+AssertionError: promise resolved "[ {} ]" instead of rejecting
+- Expected:
++ Received:
+ FAIL  src/api/products.test.js > rejects an invalid response shape: {"products":[{"id":1,"title":"Kopi A","category":"groceries","price":20,"stock":-1}]}
+AssertionError: promise resolved "[ { id: 1, title: 'Kopi A', …(3) } ]" instead of rejecting
+- Expected:
++ Received:
+ FAIL  src/api/products.test.js > rejects an invalid response shape: {"products":[{"id":1,"title":"Kopi A","category":"groceries","price":null,"stock":0}]}
+AssertionError: promise resolved "[ { id: 1, title: 'Kopi A', …(3) } ]" instead of rejecting
+- Expected:
++ Received:
+ Test Files  1 failed (1)
+      Tests  5 failed | 3 passed (8)
+   Duration  4.04s (environment 84%, setup 14%, transform 1%, tests 1%)

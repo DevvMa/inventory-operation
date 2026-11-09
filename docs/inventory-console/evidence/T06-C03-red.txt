@@ -1,0 +1,8 @@
+exit=1
+   × recovers from a failed load with an explicit retry 1037ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Duration  9.95s (environment 62%, tests 14%, setup 13%, import 7%, transform 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > recovers from a failed load with an explicit retry
+TestingLibraryElementError: Unable to find role="alert"
