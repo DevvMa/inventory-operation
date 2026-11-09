@@ -1,0 +1,20 @@
+name: Assign pull request
+
+on:
+  pull_request_target:
+    types: [opened, reopened]
+
+permissions:
+  issues: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    steps:
+      # Metadata only: never check out or run code from the pull request here.
+      - name: Assign the project owner
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh api --method POST "repos/$GH_REPO/issues/$PR_NUMBER/assignees" -f 'assignees[]=DevvMa'

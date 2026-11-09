@@ -4,7 +4,7 @@ Paket dokumentasi ringkas untuk prototipe React persiapan interview. Dibuat 9 No
 
 ## Status dan cara membaca
 
-**Fakta konteks:** lowongan meminta React, integrasi REST API, troubleshooting, testing, dan kolaborasi. Pengguna menyatakan belum memiliki expertise React. Prototipe ini belum diimplementasikan atau diuji dalam pekerjaan dokumentasi ini.
+**Fakta konteks:** lowongan meminta React, integrasi REST API, troubleshooting, testing, dan kolaborasi. Pengguna menyatakan belum memiliki expertise React. Fondasi M0 sudah dibangun dan diuji; fitur inventory belum diimplementasikan. Lihat laporan M0 untuk batas bukti.
 
 **Keputusan rancangan hasil sintesis:** enam dokumen berikut menjadi baseline implementasi versi 0.1. Ini dokumentasi proyek yang disesuaikan dengan waktu persiapan, bukan klaim kepatuhan ISO atau bukti kemampuan React empat tahun.
 
@@ -21,9 +21,9 @@ Paket dokumentasi ringkas untuk prototipe React persiapan interview. Dibuat 9 No
 
 Untuk melanjutkan pekerjaan: baca README → PRD → TRD → IPD, lalu AFD/DBD ketika mengerjakan interaksi. BSD menjelaskan alasan tidak ada database sendiri. Jangan membaca status checklist sebagai hasil pengujian sebelum ada bukti.
 
-Untuk eksekusi satu task oleh model atau developer junior, gunakan paket konteks dan template instruksi dalam [Milestone dan task](07-MILESTONES-AND-TASKS.md). Breakdown tersedia; seluruh task implementasi masih TODO.
+Untuk eksekusi satu task oleh model atau developer junior, gunakan paket konteks dan template instruksi dalam [Milestone dan task](07-MILESTONES-AND-TASKS.md). T01–T03 selesai; berikutnya T04. Lihat [hasil M0](10-M0-VERIFICATION.md) dan [Git workflow](09-GIT-WORKFLOW.md).
 
-Proses pengembangan mengikuti siklus kecil TDD dari buku Test-Driven React yang diberikan pengguna. [Alur TDD](08-TDD-WORKFLOW.md) membedakan prinsip buku dan adaptasi Vitest/React Testing Library. Runner disiapkan sebelum fitur, tes memandu setiap perubahan perilaku, dan tahap akhir mengaudit regresi serta bukti proses. Belum ada siklus TDD yang dijalankan.
+Proses pengembangan mengikuti siklus kecil TDD dari buku Test-Driven React yang diberikan pengguna. [Alur TDD](08-TDD-WORKFLOW.md) membedakan prinsip buku dan adaptasi Vitest/React Testing Library. Runner disiapkan sebelum fitur, tes memandu setiap perubahan perilaku, dan tahap akhir mengaudit regresi serta bukti proses. Siklus pemberitahuan sesi T03-C01 sudah Red/Green; fitur inventory belum diimplementasikan.
 
 ## Ringkasan yang harus dipertahankan
 

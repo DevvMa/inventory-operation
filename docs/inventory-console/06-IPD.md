@@ -1,6 +1,6 @@
 # IPD Inventory Operations Console
 
-Status: dokumentasi baseline 0.1 selesai; implementasi dan semua verifikasi berikut **belum dijalankan**.
+Status: T01–T03/M0 selesai; [bukti verifikasi M0](10-M0-VERIFICATION.md). Fitur API dan inventory pada M1–M5 belum dikerjakan.
 
 Breakdown pelaksanaan: [Milestone dan task](07-MILESTONES-AND-TASKS.md), berisi enam milestone dan 30 task. IPD tetap menjadi ringkasan progres dan bukti requirement; ledger pada breakdown mencatat progres setiap task.
 
@@ -40,7 +40,7 @@ Kotak kosong berarti belum ada bukti lulus. Saat dijalankan, catat perintah/meto
 
 Minimal tes otomatis: gabungan pencarian/filter; validasi form; simpan sukses dan gagal dengan jaringan dimock. Tes mock tidak menggantikan pemeriksaan API nyata. Jangan memakai browser/computer use tanpa persetujuan pengguna; jika belum diizinkan, catat pemeriksaan visual/keyboard masih tertunda.
 
-Tes perilaku di atas dibuat sebelum implementasi terkait pada P1–P3. P4 mengaudit dan melengkapi celah dengan siklus TDD; bukan tahap pertama menulis tes. Catat juga hasil Red/Green/refactor nyata di log Alur TDD. Belum ada bukti siklus atau estimasi waktu aktual; anggaran lima jam perlu dievaluasi di setiap gerbang.
+Tes perilaku di atas dibuat sebelum implementasi terkait pada P1–P3. P4 mengaudit dan melengkapi celah dengan siklus TDD; bukan tahap pertama menulis tes. Bukti T03-C01 sudah ada di log Alur TDD dan laporan M0. Anggaran lima jam tetap perlu dievaluasi di setiap gerbang; jangan menyamakan waktu menyiapkan repo/workflow dengan perkiraan kecepatan fitur React.
 
 ## Latihan demo tiga menit
 
@@ -53,9 +53,9 @@ Jika menggunakan AI, catat kontribusinya secara akurat dan pastikan pemilik bisa
 
 ## Handoff sesi berikutnya
 
-- Pekerjaan terakhir: membuat dokumentasi dan breakdown enam milestone/30 task; menyesuaikan proses task menjadi TDD serta menambahkan panduan dan log bukti berbasis buku.
-- File aplikasi: belum dibuat dalam pekerjaan ini.
-- Tugas berikutnya: T01 pada M0 (awal P1); inspeksi folder dan instruksi terbaru sebelum setup agar tidak menimpa pekerjaan lain.
+- Pekerjaan terakhir: menyelesaikan T01–T03/M0, menyiapkan Git workflow, dan menyiapkan PR fondasi.
+- File aplikasi: entry React, InventoryPage, tes pemberitahuan sesi, fixture tes, konfigurasi Vite/Vitest, serta lockfile.
+- Tugas berikutnya: T04 pada M1; periksa status PR M0 dan ledger sebelum melanjutkan.
 - Keputusan terbuka: waktu persiapan aktual, zona waktu undangan, koneksi API dari aplikasi lokal, versi paket kompatibel, izin pengujian browser, dan kebutuhan publikasi demo.
-- Hasil pengujian: belum tersedia.
-- Perubahan scope/bug tersisa: belum ada implementasi untuk dinilai; perbarui bagian ini setelah setiap tahap.
+- Hasil pengujian: 1 tes fitur lulus setelah Red; probe runner gagal/lulus dan dihapus; build lulus; HTTP lokal 200. Lihat laporan M0.
+- Perubahan scope/bug tersisa: fitur GET/PATCH, filter/editor, layout, dan verifikasi browser belum ada. Semua requirement inventory pada checklist di atas tetap belum dicentang; M0 hanya membuktikan fondasi dan pemberitahuan sesi.
