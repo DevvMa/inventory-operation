@@ -1,0 +1,9 @@
+   × loads at most 50 products and selects only the required fields 14ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > loads at most 50 products and selects only the required fields
+AssertionError: expected [] to deeply equal [ …(3) ]
+- Expected
++ Received
+ Test Files  1 failed (1)
+      Tests  1 failed (1)
+   Duration  4.12s (environment 80%, setup 16%, transform 3%)

@@ -1,0 +1,7 @@
+   × shows the count of products actually loaded 1050ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > shows the count of products actually loaded
+TestingLibraryElementError: Unable to find an element with the text: 3 produk dimuat. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Duration  8.30s (environment 66%, tests 17%, setup 13%, transform 2%, import 1%)

@@ -1,0 +1,6 @@
+   × times out after 10 seconds and aborts the request 1028ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > times out after 10 seconds and aborts the request
+ Test Files  1 failed (1)
+      Tests  1 failed | 8 passed (9)
+   Duration  7.75s (environment 68%, tests 15%, setup 14%, transform 2%)

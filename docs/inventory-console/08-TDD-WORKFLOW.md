@@ -62,3 +62,7 @@ T13-C01: tes submit kosong tidak memanggil onSave dan menampilkan error → amat
 ## Gerbang peninjauan
 
 Reviewer membaca hasil tes dan urutannya, bukan hanya jumlah tes terakhir. Jika bukti Red tidak tersedia, tandai TDD belum terverifikasi meskipun fungsi dan tes akhirnya lulus. Anggaran lima jam tetap asumsi perencanaan yang diuji lewat waktu aktual; jangan menghilangkan Red atau menyebut tes belakangan sebagai TDD untuk mengejar anggaran.
+
+## M1 observed cycles
+
+T04-C01–C04: GET success, HTTP failure, data validation and timeout each observed Red then Green. Invalid JSON and caller abort are confirmation tests. T06-C01–C03: loading, count and error/retry observed Red/Green; cleanup/late result is confirmation. T07-C01–C03: table, page integration and API-empty state observed Red/Green. Details: evidence/ files. No extra abstraction after Green beyond requestJson.

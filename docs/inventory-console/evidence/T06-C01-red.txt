@@ -1,0 +1,7 @@
+   × shows loading while the product request is pending 132ms
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > shows loading while the product request is pending
+TestingLibraryElementError: Unable to find an accessible element with the role "status"
+ Test Files  1 failed (1)
+      Tests  1 failed | 1 passed (2)
+   Duration  8.29s (environment 76%, setup 16%, tests 5%, transform 2%, import 1%)
