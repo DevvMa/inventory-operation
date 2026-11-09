@@ -33,6 +33,11 @@ async function requestJson(path, init, signal) {
         return response.json();
       })(),
     ]);
+  } catch (error) {
+    if (error.name === 'TypeError' || error.name === 'SyntaxError') {
+      throw new Error(init.method === 'PATCH' ? 'Tidak dapat menyimpan stok. Coba lagi.' : 'Tidak dapat memuat data. Coba lagi.', { cause: error });
+    }
+    throw error;
   } finally {
     clearTimeout(timer);
     signal?.removeEventListener('abort', cancel);
@@ -44,5 +49,5 @@ export async function getProducts({ signal } = {}) {
   if (!Array.isArray(data?.products) || !data.products.every((p) => p && Number.isSafeInteger(p.id) && typeof p.title === 'string' && typeof p.category === 'string' && Number.isFinite(p.price) && Number.isSafeInteger(p.stock) && p.stock >= 0)) {
     throw new Error('Data produk tidak valid. Coba lagi.');
   }
-  return data.products;
+  return data.products.slice(0, 50);
 }

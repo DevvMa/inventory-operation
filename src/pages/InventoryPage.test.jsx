@@ -171,3 +171,44 @@ test('aborts a save on unmount and ignores late success after remount', async ()
   expect(screen.queryByText(/diperbarui menjadi/)).not.toBeInTheDocument();
   expect(screen.getByRole('row', { name: /Kopi B/ })).toHaveTextContent('9');
 });
+
+test('moves focus into the editor and returns to search after cancel or success', async () => {
+  getProducts.mockResolvedValue(products);
+  updateStock.mockResolvedValue({ id: 2, stock: 9 });
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi B' }));
+  expect(screen.getByRole('spinbutton')).toHaveFocus();
+  await userEvent.click(screen.getByRole('button', { name: 'Batal' }));
+  expect(screen.getByRole('searchbox')).toHaveFocus();
+  await userEvent.click(screen.getByRole('button', { name: 'Edit stok Kopi B' }));
+  await userEvent.click(screen.getByRole('button', { name: 'Simpan stok' }));
+  await screen.findByRole('status');
+  expect(screen.getByRole('searchbox')).toHaveFocus();
+});
+
+test.each(['Data produk tidak valid. Coba lagi.', 'Waktu permintaan habis. Coba lagi.'])('shows recoverable API failure: %s', async (message) => {
+  getProducts.mockRejectedValueOnce(new Error(message)).mockResolvedValueOnce(products);
+  render(<InventoryPage />);
+  expect(await screen.findByRole('alert')).toHaveTextContent(message);
+  await userEvent.click(screen.getByRole('button', { name: 'Coba lagi' }));
+  expect(await screen.findByRole('table')).toBeVisible();
+});
+test('allows keyboard movement from the stock input to save and cancel', async () => {
+  getProducts.mockResolvedValue(products);
+  render(<InventoryPage />);
+  await userEvent.click(await screen.findByRole('button', { name: 'Edit stok Kopi B' }));
+  expect(screen.getByRole('spinbutton')).toHaveFocus();
+  await userEvent.tab(); expect(screen.getByRole('button', { name: 'Simpan stok' })).toHaveFocus();
+  await userEvent.tab(); expect(screen.getByRole('button', { name: 'Batal' })).toHaveFocus();
+  await userEvent.keyboard('{Enter}'); expect(screen.getByRole('searchbox')).toHaveFocus();
+});
+
+test('announces changing filter result counts politely', async () => {
+  getProducts.mockResolvedValue(products);
+  render(<InventoryPage />);
+  const count = (await screen.findByText('3 hasil')).parentElement;
+  expect(count).toHaveAttribute('aria-live', 'polite');
+  expect(count).toHaveAttribute('aria-atomic', 'true');
+  await userEvent.type(screen.getByRole('searchbox'), 'missing');
+  expect(count).toHaveTextContent('0 hasil');
+});

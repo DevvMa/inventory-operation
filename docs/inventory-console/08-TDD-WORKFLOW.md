@@ -74,3 +74,7 @@ T09-C01 controlled filters, T10-C01 combined search/filter, T12-C01 editor selec
 ## M3 observed cycles
 
 T14-C01–C03 PATCH request, save-specific HTTP error, and invalid confirmation; T16-C01 page save; T17-C01 pending controls; T17-C02 failure/retry all observed Red/Green. Integration/teardown and shared timeout/JSON paths are confirmation tests. A misplaced hook during T16 implementation was caught by the suite and fixed before Green. Red matcher was corrected to accept the actual jest-dom assertion format for T17. Removed the temporary M2 saveEnabled flag after PATCH was connected. Evidence files retain actual outcomes.
+
+## M4 observed cycles
+
+T21-C01 focus lifecycle and T21-C02 busy semantics observed Red/Green. T22/T23 audited existing regressions and added passing confirmation cases for keyboard and error recovery. A fresh code review found three issues: max-50 cap, live result counts, and native error messages. M4-R01/R02/R03 each observed Red then Green. Reviewer recheck marked all three resolved in code, with no browser/visual claim. Refactor kept simple components and no new library.

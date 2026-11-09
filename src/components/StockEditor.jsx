@@ -1,11 +1,12 @@
 import { parseStock } from './stock.js';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function StockEditor({ product, isSaving, onSave, onCancel }) {
   const [draftStock, setDraftStock] = useState(String(product.stock));
   const [fieldError, setFieldError] = useState('');
   const [saveError, setSaveError] = useState('');
   const inputRef = useRef(null);
+  useEffect(() => { inputRef.current?.focus(); }, []);
   async function handleSubmit(event) {
     event.preventDefault();
     if (isSaving) return;
@@ -19,7 +20,7 @@ export default function StockEditor({ product, isSaving, onSave, onCancel }) {
     setSaveError('');
     try { await onSave(stock); } catch (error) { setSaveError(error.message || 'Gagal menyimpan stok. Coba lagi.'); }
   }
-  return <form className="stock-editor" aria-labelledby="editor-title" noValidate onSubmit={handleSubmit}>
+  return <form className="stock-editor" aria-labelledby="editor-title" aria-busy={isSaving} noValidate onSubmit={handleSubmit}>
     <h2 id="editor-title">Edit stok</h2>
     <p className="editor-product">{product.title}</p>
     <p>Stok saat ini: <strong>{product.stock}</strong></p>

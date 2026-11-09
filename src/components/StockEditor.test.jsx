@@ -61,3 +61,8 @@ test('keeps the draft on save failure and supports correction and retry', async 
   expect(onSave).toHaveBeenCalledTimes(2);
   expect(onSave).toHaveBeenLastCalledWith(12);
 });
+
+test('announces that the editor is busy while saving', () => {
+  render(<StockEditor product={products[1]} isSaving={true} onSave={vi.fn()} onCancel={vi.fn()} />);
+  expect(screen.getByRole('form')).toHaveAttribute('aria-busy', 'true');
+});

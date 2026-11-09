@@ -1,0 +1,10 @@
+exit=1
+   × announces changing filter result counts politely 57ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 18 passed (19)
+   Duration  12.07s (environment 49%, tests 33%, setup 11%, import 5%, transform 3%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/pages/InventoryPage.test.jsx > announces changing filter result counts politely
+Error: expect(element).toHaveAttribute("aria-live", "polite") // element.getAttribute("aria-live") === "polite"
+Expected the element to have attribute:
+Received:

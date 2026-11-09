@@ -1,0 +1,10 @@
+exit=1
+   × caps an oversized but valid API response at 50 products 38ms
+ Test Files  1 failed (1)
+      Tests  1 failed | 20 passed (21)
+   Duration  7.18s (environment 78%, setup 18%, transform 2%, tests 2%)
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/api/products.test.js > caps an oversized but valid API response at 50 products
+AssertionError: expected [ …(51) ] to deeply equal [ …(50) ]
+- Expected
++ Received

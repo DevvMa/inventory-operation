@@ -1,0 +1,74 @@
+[
+  {
+    "name": "body",
+    "fg": "#17293a",
+    "bg": "#f5f7fa",
+    "ratio": 13.83,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "muted",
+    "fg": "#536577",
+    "bg": "#ffffff",
+    "ratio": 6.01,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "placeholder",
+    "fg": "#5d6f82",
+    "bg": "#ffffff",
+    "ratio": 5.17,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "primary button",
+    "fg": "#ffffff",
+    "bg": "#164fba",
+    "ratio": 7.34,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "error",
+    "fg": "#a12a27",
+    "bg": "#ffffff",
+    "ratio": 7.3,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "notice/success",
+    "fg": "#244f86",
+    "bg": "#eaf1fc",
+    "ratio": 7.28,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "low stock",
+    "fg": "#864508",
+    "bg": "#fff1dd",
+    "ratio": 6.58,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "table heading",
+    "fg": "#435970",
+    "bg": "#edf2f8",
+    "ratio": 6.43,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "name": "input boundary",
+    "fg": "#748599",
+    "bg": "#ffffff",
+    "ratio": 3.78,
+    "minimum": 3,
+    "pass": true
+  }
+]
