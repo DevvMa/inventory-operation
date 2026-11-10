@@ -1,6 +1,6 @@
 # Milestone dan task Inventory Operations Console
 
-Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: T01–T24, T26–T28, T30 **DONE**; T25 dan T29 **WAITING**. Lihat 14-FINAL-HANDOFF.md untuk batas bukti. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
+Tanggal baseline: 9 November 2026. Revisi proses 0.2: TDD berdasarkan buku Test-Driven React. Status: Semua task teknis **DONE**; T29 **DEFERRED** atas permintaan pemilik untuk sesi belajar terpisah. Lihat 14-FINAL-HANDOFF.md untuk batas bukti. Bukti: [laporan M0](10-M0-VERIFICATION.md). Dokumen ini memecah rencana [IPD](06-IPD.md); tidak mengganti requirement atau menandakan seluruh implementasi sudah selesai.
 
 ## Dasar dan batas pekerjaan
 
@@ -339,7 +339,7 @@ Anggaran mencakup integrasi serta verifikasi pada milestone, bukan janji waktu s
 
 ## Ledger eksekusi
 
-Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belum tersedia). DONE memerlukan bukti sesuai kriteria task; task perilaku juga memerlukan tautan siklus di [log TDD](08-TDD-WORKFLOW.md). Simpan ringkasan Red, Green, dan refactor aktual di log tersebut; jangan mengubah tabel TODO menjadi bukti seolah tes sudah dijalankan. Hambatan tidak otomatis berarti requirement dihapus.
+Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belum tersedia), DEFERRED (ditunda secara eksplisit oleh pemilik). DONE memerlukan bukti sesuai kriteria task; task perilaku juga memerlukan tautan siklus di [log TDD](08-TDD-WORKFLOW.md). Simpan ringkasan Red, Green, dan refactor aktual di log tersebut; jangan mengubah tabel TODO menjadi bukti seolah tes sudah dijalankan. Hambatan tidak otomatis berarti requirement dihapus.
 
 | Task | Status | File berubah | Bukti atau hambatan |
 | --- | --- | --- | --- |
@@ -367,11 +367,11 @@ Status: TODO, DOING, DONE, BLOCKED (hambatan terbukti), WAITING (input/izin belu
 | T22 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
 | T23 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
 | T24 | DONE | Responsive UI, focus, regression tests | M4 evidence; browser verification separate in T25 |
-| T25 | WAITING | 13-BROWSER-CHECK.md | Internal browser consent given; tool failed twice; alternative browser consent pending |
+| T25 | DONE | Browser checks, screenshots, CSS focus fix | 13-BROWSER-CHECK.md; Chromium desktop/mobile emulation; 63 tests/build pass |
 | T26 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
 | T27 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
 | T28 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
-| T29 | WAITING | 12-DEMO-AND-LEARNING-GUIDE.md | Owner explanation/exercise requested; no answer received |
+| T29 | DEFERRED | 12-DEMO-AND-LEARNING-GUIDE.md | Owner requested teaching in a separate session; mastery not verified |
 | T30 | DONE | Review, guide and final handoff | Reports 11–14; remaining checks explicitly pending |
 
 ## Aturan saat anggaran habis

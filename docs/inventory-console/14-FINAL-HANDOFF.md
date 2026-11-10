@@ -2,7 +2,7 @@
 
 ## Facts and current status
 
-The planned application features are implemented. The latest code gate passed 63 tests across six files and a production build. PRs #2–#5 were assigned to DevvMa, reviewed, and squash-merged after required CI passed. Main contains the application; no deployment was made.
+The planned application features are implemented. The latest code gate passed 63 tests across six files and a production build. PRs #2–#6 were assigned to DevvMa, reviewed, and squash-merged after required CI passed. The T25 follow-up fixes a browser-found focus-ring issue and records the new evidence through the same PR workflow. Main contains the application; no deployment was made.
 
 | Milestone | Status | Evidence |
 | --- | --- | --- |
@@ -10,23 +10,23 @@ The planned application features are implemented. The latest code gate passed 63
 | M1 loading | Complete | PR #2; 19 tests, real GET, report 11 |
 | M2 search/editor | Complete | PR #3; 39 tests, report 11 |
 | M3 saving | Complete | PR #4; 54 tests, real PATCH/GET, report 11 |
-| M4 quality | Implementation/checks complete; T25 waiting | PR #5; 63 tests, review fixes, static contrast; browser startup failed |
-| M5 handoff | Review/docs/demo guide prepared; T29 waiting | This handoff and guide 12; owner answers not yet received |
+| M4 quality | Complete at Chromium prototype scope | PR #5 plus T25 follow-up; desktop/mobile browser checks and focus-ring fix; 63 tests/build pass |
+| M5 handoff | Technical handoff complete; T29 deferred by owner | This handoff and guide 12; user requested a separate teaching session |
 
-T30 records the actual final status; it does not turn the two waiting tasks into passes. The project is not labelled fully browser-verified or owner-mastered.
+T30 records the actual final status: 29 tasks DONE, T29 DEFERRED. Browser evidence covers Chromium desktop and 360px mobile emulation, not every browser/device or actual screen-reader speech. Owner mastery is not claimed.
 
 ## Requirement audit
 
 | Requirement | Verified evidence | Remaining limit |
 | --- | --- | --- |
-| R01 products | API contract, real GET, table tests, response capped at 50 | Real browser rendering pending |
-| R02 search/filter | Trim/case, AND combination, 0/9/10 boundaries, empty/reset, no extra GET | Real browser interaction pending |
-| R03 validation | Zero/unchanged accepted; empty, negative, decimal, unsafe values rejected; no invalid submit | Native browser behavior pending |
-| R04 save | Exact PATCH payload/response checks, pending locks, duplicate guard, real API confirmation | Browser request flow pending |
-| R05 recovery | HTTP/JSON/shape/network failure, timeout/cancellation, load retry, retained draft/data | Browser network simulation pending |
+| R01 products | API contract, real GET, table tests, response capped at 50 | Chromium real GET renders 50 rows; other engines not tested |
+| R02 search/filter | Trim/case, AND combination, 0/9/10 boundaries, empty/reset, no extra GET | Browser search/filter/reset checked; no multi-user claim |
+| R03 validation | Zero/unchanged accepted; empty, negative, decimal, unsafe values rejected; no invalid submit | Keyboard empty/negative/decimal checks pass; unsafe bounds also covered by unit tests |
+| R04 save | Exact PATCH payload/response checks, pending locks, duplicate guard, real API confirmation | Real browser PATCH, pending locks and double-click guard verified |
+| R05 recovery | HTTP/JSON/shape/network failure, timeout/cancellation, load retry, retained draft/data | Synthetic browser GET/PATCH failure and real retry verified; injected errors are not natural service outages |
 | R06 consistency | Immutable single-product update, derived filters, removed row after successful stock change | No multi-user/concurrency claim |
-| R07 demo limits | Visible session notice, real PATCH followed by unchanged server GET, fresh-mount state tests | Actual browser reload pending |
-| R08 usability | DOM labels, focus, keyboard, live count/status, busy/error semantics; static color contrast | Visual/mobile/screen-reader checks pending |
+| R07 demo limits | Visible session notice, real PATCH followed by unchanged server GET, fresh-mount state tests | Browser reload restored original stock 4 after local value 12 |
+| R08 usability | DOM labels, focus, keyboard, live count/status, busy/error semantics; static color contrast | Desktop/mobile-emulated screenshots and keyboard pass; physical devices and screen-reader speech not tested |
 
 ## Run and inspect
 
@@ -47,12 +47,12 @@ Key files: src/api/products.js, src/pages/InventoryPage.jsx, src/components/Inve
 
 A fresh code reviewer found three issues: unenforced max-50 response, missing live result announcements, and raw network/JSON error messages. Each received a failing regression test and a fix. The reviewer rechecked all three as resolved in code. This review had no screenshots and did not certify visual/browser accessibility.
 
-The internal browser tool failed twice before page access. A reset did not help. No other browser was used without consent. [Browser checklist and exact status](13-BROWSER-CHECK.md) remain the source for T25. [Guide and owner exercise](12-DEMO-AND-LEARNING-GUIDE.md) remain the source for T29.
+The internal browser tool failed twice before page access. A reset did not help. On 10 November 2026 the user approved a separate Chrome DevTools test browser. An isolated project context was used; unrelated tabs were not touched. Actual screenshot/keyboard/network evidence is now recorded, including a fixed table focus outline and a fresh visual review with no blocking finding in the supplied captures. [Browser checklist and exact status](13-BROWSER-CHECK.md) remain the source for T25. [Guide and owner exercise](12-DEMO-AND-LEARNING-GUIDE.md) remain the source for T29.
 
 ## Next actions without losing context
 
-1. T25: use a working permitted browser, run the documented desktop/mobile/API/keyboard/reload checks, record screenshots/results, and fix any real defects through regression tests where possible.
-2. T29: review the owner's explanation and small-change exercise. Offer focused teaching if a concept is unclear; do not infer knowledge from silence.
-3. Update the ledger and this handoff after either task is actually verified. All other task deliverables are complete.
+1. Technical implementation and T25 are complete. See report 13 and its screenshots for the exact browser scope.
+2. T29 is deferred at the owner's request. Teach from guide 12 in a separate session when requested; do not infer mastery.
+3. Future changes continue through assigned PRs, required CI, review and squash merge.
 
 The initial five-hour plan was an unvalidated budget. Evidence records actual test results, not a timesheet or an assumption that coding and learning take the same time.

@@ -51,3 +51,7 @@ Build passes (22 modules); HTTP app 200, real API origin header permits the loca
 ## M5 handoff
 
 T26 requirement audit complete in report 14. T27 setup/context docs and project rules updated. T28 three-minute guide prepared in report 12. T29 WAITING for owner answers and the small-change exercise; no mastery claim. T30 reports the actual incomplete external checks. T25 remains WAITING for a working permitted browser. All code PRs #2–#5 are merged; the final documentation PR follows the same assignment/CI/review/merge workflow.
+
+## 10 November update: T25 complete, learning deferred
+
+The owner approved a separate Chrome DevTools test browser. Actual desktop/mobile-emulated UI, API, validation, lock/retry, reload and keyboard checks passed. The browser found a clipped table focus ring; an inset outline fixed it, and desktop/mobile recaptures were reviewed as resolved. All 63 tests/build still pass. Screenshots and exact results are in report 13. T29 is DEFERRED because the owner requested teaching in a separate session; earlier WAITING entries above are historical.

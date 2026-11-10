@@ -1,6 +1,6 @@
 # IPD Inventory Operations Console
 
-Status: implementasi fitur selesai; 63 tes dan build lulus. T25 (browser) dan T29 (pemahaman pemilik) WAITING. Lihat [handoff akhir](14-FINAL-HANDOFF.md); jangan menyebut seluruh milestone terverifikasi penuh.
+Status: seluruh task teknis selesai; T25 browser check selesai pada Chromium desktop/mobile emulation; 63 tes dan build lulus. T29 DEFERRED atas permintaan pemilik untuk sesi belajar terpisah. Penguasaan pemilik tidak diklaim. Lihat [handoff akhir](14-FINAL-HANDOFF.md).
 
 Breakdown pelaksanaan: [Milestone dan task](07-MILESTONES-AND-TASKS.md), berisi enam milestone dan 30 task. IPD tetap menjadi ringkasan progres dan bukti requirement; ledger pada breakdown mencatat progres setiap task.
 
@@ -15,8 +15,8 @@ Anggaran: empat jam pembangunan/verifikasi dan satu jam memahami kode serta lati
 | P1 | 60 menit | Runner dahulu; siklus TDD GET/tabel/loading/error; GET nyata | Selesai |
 | P2 | 60 menit | Siklus TDD pencarian/filter, editor dan validasi | Selesai |
 | P3 | 60 menit | Siklus TDD PATCH/pending/gagal/konsistensi; PATCH nyata | Selesai |
-| P4 | 60 menit | Audit regresi dan log TDD, refactor aman, build, review visual bila diizinkan | Kode/tes selesai; T25 WAITING |
-| P5 | 60 menit | Review pemahaman, catat keterbatasan, latihan demo tiga menit | Review/dokumen selesai; T29 WAITING |
+| P4 | 60 menit | Audit regresi dan log TDD, refactor aman, build, review visual bila diizinkan | Selesai; T25 Chromium/360px lulus |
+| P5 | 60 menit | Review pemahaman, catat keterbatasan, latihan demo tiga menit | Handoff selesai; T29 ditunda pemilik |
 
 P1 menjadi gerbang: jika koneksi/setup belum berjalan pada akhir anggaran, selesaikan masalah itu sebelum menambah fitur. Jika waktu menyempit, usulkan pengurangan filter stok rendah terlebih dahulu; tandai R02/R06 hanya terpenuhi sebagian. Jangan diam-diam menghapus requirement. Jika API tidak dapat diakses, fixture berlabel hanya boleh disebut mode demo offline, bukan bukti integrasi API nyata.
 
@@ -31,13 +31,13 @@ Kotak kosong berarti belum ada bukti lulus. Saat dijalankan, catat perintah/meto
 | Query trim/case-insensitive dan filter gabungan; reset | R02 | [x] | T10/T11 tests |
 | 0 valid; kosong, negatif, desimal ditolak tanpa PATCH | R03 | [x] | T13 tests and parseStock cases |
 | PATCH nyata dengan respons sesuai; GET server tetap semula | R04/R07 | [x] | T19 real API JSON evidence |
-| Reload aplikasi pada browser kembali ke data API | R07 | [ ] | T25 WAITING; fresh-mount tests pass |
+| Reload aplikasi pada browser kembali ke data API | R07 | [x] | T25: stok lokal 12 kembali 4 setelah reload |
 | Submit ganda/edit/batal terkunci saat menyimpan | R04 | [x] | T17/T18 tests |
 | Gagal simpan mempertahankan input dan tabel lama | R05 | [x] | T17/T18 failure and retry |
 | Sukses memperbarui tabel/filter dan pesan tetap terlihat | R06 | [x] | T16/T18 integration tests |
 | Timeout dan respons JSON/shape invalid ditangani | R05 | [x] | T04/T14/T23 API and UI tests |
 | Label, fokus, keyboard di DOM; static contrast | R08 | [x] | T21/T22 tests; M4 contrast evidence |
-| Layout/keyboard nyata pada desktop dan layar kecil | R08 | [ ] | T25 WAITING; CSS implemented, not visually verified |
+| Layout/keyboard nyata pada desktop dan layar kecil | R08 | [x] | T25: Chromium 1365px/360px, screenshot dan keyboard; bukan physical-device/screen-reader certification |
 | Automated test dan build lulus | R02–R06 | [x] | 63 tests, six files, build passes; M4 evidence |
 
 Minimal tes otomatis: gabungan pencarian/filter; validasi form; simpan sukses dan gagal dengan jaringan dimock. Tes mock tidak menggantikan pemeriksaan API nyata. Jangan memakai browser/computer use tanpa persetujuan pengguna; jika belum diizinkan, catat pemeriksaan visual/keyboard masih tertunda.
@@ -58,6 +58,6 @@ Jika menggunakan AI, catat kontribusinya secara akurat dan pastikan pemilik bisa
 - Implementasi: loading/search/filter/editor/PATCH/recovery lengkap. Tidak ada deployment.
 - Hasil: 63 tes lulus, build lulus, real GET/PATCH dan origin header diverifikasi; semua milestone code PR sudah melalui required CI dan squash merge.
 - Review: tiga temuan kode diselesaikan dengan tes regresi; reviewer mengonfirmasi perbaikan, tanpa klaim visual.
-- T25: browser internal diizinkan tetapi alat gagal startup dua kali; alternatif browser masih menunggu izin.
-- T29: panduan dan pertanyaan latihan tersedia; jawaban pemilik belum diterima.
-- Tugas berikutnya: dua verifikasi tersebut, bukan membangun ulang fitur. Baca [handoff akhir](14-FINAL-HANDOFF.md), [browser check](13-BROWSER-CHECK.md), dan [panduan demo](12-DEMO-AND-LEARNING-GUIDE.md).
+- T25: browser terpisah disetujui; actual checks selesai, screenshot tersimpan, focus-ring clipping diperbaiki dan diverifikasi ulang.
+- T29: pemilik menyatakan belum belajar dan meminta diajari pada sesi terpisah; DEFERRED, bukan lulus.
+- Tugas teknis selesai. Berikutnya sesi belajar terpisah saat pemilik siap, bukan membangun ulang fitur. Baca [handoff akhir](14-FINAL-HANDOFF.md), [browser check](13-BROWSER-CHECK.md), dan [panduan demo](12-DEMO-AND-LEARNING-GUIDE.md).
