@@ -78,3 +78,7 @@ T14-C01–C03 PATCH request, save-specific HTTP error, and invalid confirmation;
 ## M4 observed cycles
 
 T21-C01 focus lifecycle and T21-C02 busy semantics observed Red/Green. T22/T23 audited existing regressions and added passing confirmation cases for keyboard and error recovery. A fresh code review found three issues: max-50 cap, live result counts, and native error messages. M4-R01/R02/R03 each observed Red then Green. Reviewer recheck marked all three resolved in code, with no browser/visual claim. Refactor kept simple components and no new library.
+
+## T25 visual regression
+
+Actual browser keyboard focus exposed a clipped table outline (offset 3px outside an overflow-hidden parent). Fixed with outline-offset:-4px and verified in desktop/mobile screenshots. This is the documented visual-CSS exception, not a claimed jsdom Red/Green cycle. Existing 63 tests and build pass after the fix; report 13 records the evidence.
